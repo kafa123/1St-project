@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,4 @@ Route::get('/',function(){
         "pagename" => "Home"
     ]);
 });
-Route::get('/about', function () {
-    return view('about',[
-        "name" => "kafabih",
-        "email"=>"kafabih@gmail.com",
-        "pagename" => "About"
-    ]);
-});
+Route::get('/about',[testController::class,'index']);

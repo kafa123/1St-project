@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('kandang', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('user_id');
+            $table->string('nama_kandang')->unique();
+            $table->string('lokasi');
+            $table->string('alamat_kandang');
             $table->timestamps();
-            $table->string('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('kandang');
     }
 };

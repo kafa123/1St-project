@@ -1,11 +1,28 @@
 body {
-    background-color: #f1f1f1;
+    background-color: #F0F0F0;
   }
 
   .vertical-center {
     min-height: 100%;
     min-height: 100vh;
-  
+
     display: flex;
     align-items: center;
   }
+  .circular-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: transform 0.3s ease; /* Add a transition effect */
+}
+
+.circular-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.circular-image:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+}
