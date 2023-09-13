@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_kandang', function (Blueprint $table) {
+        Schema::create('kematian_terakhir', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_kandang');
+            $table->unsignedBigInteger('id_total_kematian');
             $table->unsignedBigInteger('id_user');
-            $table->integer('hari_ke')->nullable(false);
-            $table->integer('pakan')->nullable(false);
-            $table->integer('minum')->nullable(false);
-            $table->integer('bobot')->nullable(false);
 
+            $table->integer('kematian_terakhir');
+            $table->time('jam_kematian');
             $table->timestamps();
-            $table->date('date');
+            $table->foreign('id_total_kematian')->references('id')->on('total_kematian');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_kandang')->references('id')->on('kandang');
-
         });
     }
 
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_kandang');
+        Schema::dropIfExists('kematian_terakhir');
     }
 };

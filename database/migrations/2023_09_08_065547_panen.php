@@ -17,6 +17,8 @@ return new class extends Migration
             $table->timestamp('tanggal_mulai')->nullable(false);
             $table->timestamp('tanggal_selesai')->nullable(false)->default(now());
             $table->integer('jumlah_panen')->nullable(false);
+            $table->integer('total_bobot')->nullable(false);
+
             $table->timestamps();
             $table->foreign('id_kandang')->references('id')->on('kandang');
         });
