@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('total_kematians', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->integer('total_kematian');
-            $table->unsignedBigInteger('id_data_kandang');
+            $table->string('judul');
+            $table->string('penulis');
+            $table->integer('harga');
+            $table->date('tgl_terbit');
             $table->timestamps();
-            $table->foreign('id_data_kandang')->references('id')->on('data_kandangs');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('total_kematian');
+        Schema::dropIfExists('books');
     }
 };

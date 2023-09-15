@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_sensor', function (Blueprint $table) {
+        Schema::create('data_sensors', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedBigInteger('id_kandang');
             $table->integer('suhu')->nullable(false);
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('amoniak')->nullable(false);
             $table->enum('classification',['normal','abnormal'])->default('normal');
             $table->timestamp('date')->nullable(false);
-            $table->foreign('id_kandang')->references('id')->on('kandang');
+            $table->foreign('id_kandang')->references('id')->on('kandangs');
         });
     }
 

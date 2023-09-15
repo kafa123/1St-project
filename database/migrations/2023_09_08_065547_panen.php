@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('panen', function (Blueprint $table) {
+        Schema::create('panens', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedBigInteger('id_kandang');
             $table->timestamp('tanggal_mulai')->nullable(false);
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('total_bobot')->nullable(false);
 
             $table->timestamps();
-            $table->foreign('id_kandang')->references('id')->on('kandang');
+            $table->foreign('id_kandang')->references('id')->on('kandangs');
         });
     }
 

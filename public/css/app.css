@@ -26,3 +26,7 @@ body {
 .circular-image:hover {
     transform: scale(1.1); /* Enlarge the image on hover */
 }
+
+table, th, td {
+    border: 1px solid black;
+  }

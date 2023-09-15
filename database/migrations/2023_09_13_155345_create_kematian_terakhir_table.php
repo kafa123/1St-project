@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kematian_terakhir', function (Blueprint $table) {
+        Schema::create('kematian_terakhirs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_total_kematian');
             $table->unsignedBigInteger('id_user');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('kematian_terakhir');
             $table->time('jam_kematian');
             $table->timestamps();
-            $table->foreign('id_total_kematian')->references('id')->on('total_kematian');
+            $table->foreign('id_total_kematian')->references('id')->on('total_kematians');
             $table->foreign('id_user')->references('id')->on('users');
         });
     }
