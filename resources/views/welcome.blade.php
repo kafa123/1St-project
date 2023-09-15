@@ -13,5 +13,7 @@
         </div>
     </div>
 </div>
+
+<a name="" id="" class="btn btn-primary d-flex justify-content-center p-4 m-3" href="/book" role="button">to books</a>
 @endsection
 

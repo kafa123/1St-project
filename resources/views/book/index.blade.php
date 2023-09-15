@@ -2,6 +2,7 @@
 @section('title','tabel')
 
 @section('content')
+@include('components.navbar')
     <div class="table-responsive">
         <table class="table table-primary">
             <thead>
