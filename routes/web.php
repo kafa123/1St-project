@@ -22,11 +22,14 @@ Route::get('/',function(){
 Route::get('/about',[testController::class,'index']);
 
 Route::get('/book',[BookController::class,'index']);
-Route::post('/book',[BookController::class,'store']);
 
-Route::get('/book/{id}/edit',[BookController::class,'edit']);
+Route::get('/book/create',[BookController::class,'create']);
 
-Route::put('/book/{id}',[BookController::class,'update']);
+Route::post('/book',[BookController::class,'store'])->name('book.store');
+
+Route::get('/book/edit/{id}',[BookController::class,'edit']);
+
+Route::put('/book/{id}',[BookController::class,'update'])->name('book.update');
 
 Route::delete('book/{id}',[BookController::class,'destroy']);
 

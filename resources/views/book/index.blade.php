@@ -3,6 +3,11 @@
 
 @section('content')
 @include('components.navbar')
+<div class="">
+    <h4 class="text-center mb-4">Daftar Buku</h4>
+    <div class="d-flex justify-content-center"><a href="/book/create" class="btn btn-success mb-3">Buat Buku Baru</a></div>
+</div>
+
     <div class="table-responsive">
         <table class="table table-primary">
             <thead>
@@ -25,11 +30,16 @@
                     <td scope="row">{{"Rp".number_format($book->harga,2,',','.') }}</td>
                     <td scope="row">{{$book->tgl_terbit}}</td>
                     <td scope="row">
-                        <form action="/book/{{$book->id}}" method="post">
+
+                        <div><form action="/book/{{$book->id}}" method="post">
                         @csrf
                         @method('delete')
                         <input type="image" src="{{asset('images/ic_delete.png')}}" alt="Submit" class="btn btn-primary">
                         </form>
+
+                        <a name="" id="" class="btn btn-primary" href="/book/edit/{{$book->id}}" role="button">edit</a>
+
+                    </div>
                     </td>
                 </tr>
                 @endforeach
